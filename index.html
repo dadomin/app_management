@@ -56,7 +56,7 @@
         </article>
     </section>
 
-    <button id="plus_btn"><span>＋</span></button>
+    <button id="plus_btn" onclick="open_add_modal()"><span>＋</span></button>
 
     <section id="warning">
         <div class="warning_back" onclick="warning_close()"></div>
@@ -66,6 +66,31 @@
             <div class="modal_btn">
                 <button class="red_btn">등록</button>
                 <button class="red_btn_rev"onclick="warning_close()">닫기</button>
+            </div>
+        </div>
+    </section>
+    
+    <section id="modal">
+        <div class="modal_back" onclick="close_add_modal()"></div>
+        <div class="modal_in">
+            <h1>애플리케이션 추가하기</h1>
+            <div>
+                <p>이름</p>
+                <input type="text" name="app_name" placeholder="애플리케이션 이름을 입력하세요"/>
+            </div>
+            <div>
+                <p>이미지 선택하기</p>
+                <input type="file" id="app_img" accept="image/*"/>
+                <label class="app_file" for="app_img">
+                    <img src="./img/open-folder.png" id="preview"/>
+                    <p id="preview-name">이미지 파일 찾기</p>
+                </label>
+            </div>
+            <span id="close_btn" onclick="close_add_modal()">×</span>
+
+            <div class="modal_btn">
+                <button class="blue_btn">추가</button>
+                <button class="white_btn" onclick="close_add_modal()">취소</button>
             </div>
         </div>
     </section>
@@ -79,4 +104,31 @@
     function warning_close() {
         document.getElementById('warning').classList.remove('pop_up')   
     }
+    function open_add_modal() {
+        document.getElementById('modal').classList.add('pop_up')
+    }
+    function close_add_modal() {
+        document.getElementById('modal').classList.remove('pop_up')   
+    }
+    document.querySelector('#app_img').addEventListener('change', function(e){
+        if(e.target.files && e.target.files[0]) {
+            var reader = new FileReader()
+            reader.onload = function(e) {
+                document.getElementById('preview').src = e.target.result
+            }
+            document.getElementById('preview-name').innerText = e.target.files[0].name
+            document.querySelector('.app_file').style.border = '2px solid #7067c9'
+            reader.readAsDataURL(e.target.files[0])
+        }else {
+            document.getElementById('preview').src = './img/open-folder.png';
+            document.getElementById('preview-name').innerText = '이미지 파일 찾기'
+        }
+    })
+    document.querySelector("input[name='app_name']").addEventListener('change', function(e) {
+        if(e.target.value != '') {
+            e.target.style.border = '1px solid #7067c9'
+        }else {
+            e.target.style.border = '1px solid #d7d7d7'
+        }
+    })
 </script>

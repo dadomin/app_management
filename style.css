@@ -231,7 +231,11 @@ nav#profile_tab {
     left: 0;
     width: 100%;
     height: 100%;
+    display: none;
     z-index: 999;
+}
+#modal.pop_up {
+    display: block;
 }
 .modal_back {
     width: 100%;
