@@ -231,6 +231,7 @@ nav#profile_tab {
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 999;
 }
 .modal_back {
     width: 100%;
@@ -367,6 +368,7 @@ nav#profile_tab {
 
 
 #warning {
+    z-index: 999;
     position: fixed;
     top: 0;
     left: 0;
@@ -376,6 +378,7 @@ nav#profile_tab {
 }
 #warning.pop_up {
     display: block;
+    z-index: 999;
 }
 .warning_back {
     width: 100%;
@@ -446,7 +449,9 @@ nav#profile_tab {
     justify-content: center;
 }
 .approve_app_img > img {
-    width: 40%;
+    max-width: 30%;
+    width: auto;
+    min-width: 250px;
     height: auto;
 }
 .app_desc {
