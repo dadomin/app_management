@@ -518,3 +518,107 @@ nav#profile_tab {
     width: 100%;
     height: 100%;
 }
+
+/* 사용자 관리 */
+.search_tab {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.search_tab > input {
+    padding: 4px 12px;
+    border-radius: 12px;
+    border: 1px solid #d2d2d2;
+    width: 180px;
+    margin-right: 12px;
+    outline: none;
+}
+.search_tab > button {
+    border-radius: 12px;
+    padding: 2px 6px;
+    margin: 0 2px;
+}
+.user_list {
+    margin: 30px auto;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px #5345d369;
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 0;
+}
+.user_list thead {
+    background-color: #7067c9;
+    overflow: hidden;
+    color: #fff;
+    font-size: 14px;
+}
+.user_list th {
+    padding: 6px 4px;
+}
+.user_list td {
+    padding: 6px 12px;
+    font-size: 12px;
+    border-bottom: 1px solid #efefef;
+    cursor: pointer;
+}
+.user_list td:last-child {
+    border: none;
+}
+.user_list tr:hover {
+    background-color: #bbb4f92e;
+}
+/* 사용자 상세 */
+#user_detail {
+    background-color: #e4e1ff66;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 100px 50px;
+}
+#user_detail > h2 {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 12px;
+}
+#user_detail > h1 {
+    font-size: 21px;
+}
+.user_desc {
+    background-color: #fff;
+    margin: 30px auto;
+    padding: 50px 100px;
+    text-align: left;
+    border-radius: 21px;
+}
+.user_desc >h1 {
+    font-size: 16px;
+    color: #7067c9;
+    margin-bottom: 12px
+}
+.user_table {
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    width: 100%;
+}
+.user_table tr {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+.user_table tr:last-child {
+    border: none;
+}
+.user_table th {
+    flex: 1;
+    font-weight: 100;
+    padding: 6px 12px;
+    background-color: #f7f7f7;
+}
+.user_table td {
+    flex: 5;
+    padding: 6px 12px;
+}

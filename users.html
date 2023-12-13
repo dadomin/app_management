@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>앱 관리 화면</title>
+</head>
+<body>
+    <header>
+        <a href="/">
+            2Factor Proxy<br/>
+            Shinhan Bank
+        </a>
+
+        <ul>
+            <li>모든 앱 보기</li>
+            <li>미사용 앱 보기</li>
+            <li>승인 내역 보기</li>
+            <li class="active">사용자 관리</li>
+        </ul>
+    </header>
+
+    <section id="in">
+        <nav id="profile_tab">
+            <div class="profile_img">
+                <img src="./img/blank-profile-picture.png"/>
+            </div>
+            <div class="profile_txt">
+                <h1><b>홍인택</b>님</h1>
+                <a href="/">로그아웃</a>
+            </div>
+        </nav>
+        
+
+        <article class="user_management">
+            
+            <div class="search_tab">
+                <input type="text" id="name_search" placeholder="검색할 이름을 입력하세요."/>
+                <button class="blue_btn">검색</button>
+                <button class="blue_btn_rev" onclick="reset_name()">초기화</button>
+            </div>
+            <table class="user_list">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>행번</th>
+                        <th>이름</th>
+                        <th>부서</th>
+                        <th>직급</th>
+                        <th>등급</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr onclick="show_user_detail()">
+                        <td>1</td>
+                        <td>19200889</td>
+                        <td>황희예</td>
+                        <td>CA셀</td>
+                        <td>선임</td>
+                        <td>관리자</td>
+                    </tr>
+                    
+                    <tr onclick="show_user_detail()">
+                        <td>2</td>
+                        <td>19102143</td>
+                        <td>홍인택</td>
+                        <td>CA셀</td>
+                        <td>선임</td>
+                        <td>관리자</td>
+                    </tr>
+                    
+                    <tr onclick="show_user_detail()">
+                        <td>3</td>
+                        <td>22200223</td>
+                        <td>김다민</td>
+                        <td>CA셀</td>
+                        <td>선임</td>
+                        <td>일반 사용자</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+    </section>
+
+    <button id="plus_btn" onclick="open_add_modal()"><span>＋</span></button>
+
+    <section id="modal">
+        <div class="modal_back" onclick="close_add_modal()"></div>
+        <div class="modal_in">
+            <h1>애플리케이션 추가하기</h1>
+            <div>
+                <p>이름</p>
+                <input type="text" name="app_name" placeholder="애플리케이션 이름을 입력하세요"/>
+            </div>
+            <div>
+                <p>이미지 선택하기</p>
+                <input type="file" id="app_img" accept="image/*"/>
+                <label class="app_file" for="app_img">
+                    <img src="./img/open-folder.png" id="preview"/>
+                    <p id="preview-name">이미지 파일 찾기</p>
+                </label>
+            </div>
+            <span id="close_btn" onclick="close_add_modal()">×</span>
+
+            <div class="modal_btn">
+                <button class="blue_btn">추가</button>
+                <button class="white_btn" onclick="close_add_modal()">취소</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+<script>
+    function reset_name() {
+        document.getElementById('name_search').value = '';
+    }
+    function show_user_detail() {
+        let win = window.open('./user_detail.html', '_blank', 'width=1200', 'height=1000')
+        win.document.title = '사용자 상세보기';
+    }
+    function open_add_modal() {
+        document.getElementById('modal').classList.add('pop_up')
+    }
+    function close_add_modal() {
+        document.getElementById('modal').classList.remove('pop_up')   
+    }
+</script>
